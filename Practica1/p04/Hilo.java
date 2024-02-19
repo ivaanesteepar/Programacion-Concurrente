@@ -1,13 +1,12 @@
-package p04;
+package p03;
 
-public class Hilo_ implements Runnable{
+public class Hilo implements Runnable{
 	
-private char caracter;
+    private char caracter;
     private int tiempoEntreEscrituras;
     private int repeticiones;
 
-    // constructor con el caracter que se quiere imprimir, el tiempo y el numero de repeticiones
-    public Hilo_(char caracter, int tiempoEntreEscrituras, int repeticiones) {
+    public Hilo(char caracter, int tiempoEntreEscrituras, int repeticiones) {
         this.caracter = caracter;
         this.tiempoEntreEscrituras = tiempoEntreEscrituras;
         this.repeticiones = repeticiones;
