@@ -1,32 +1,36 @@
 package p04;
-import java.util.Scanner;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import p03.Hilo;
 
 public class CasoEstudio4 {
 
     public static void main(String[] args) {
-        // Solicitar entrada del usuario para las variables del hilo
-        Scanner scanner = new Scanner(System.in);
+
+    	Thread hilox = new Thread(new Hilo('x', 1, 4));
+        Thread hilo_ = new Thread(new Hilo('-', 3, 2));
+        Thread hiloO = new Thread(new Hilo('o', 6, 2));
+                
+        hilox.start();
+        hilo_.start();
+        hiloO.start();
         
-        System.out.print("Ingrese el carácter: ");
-        char caracter = scanner.next().charAt(0);
+        hiloO.setPriority(Thread.MAX_PRIORITY);
 
-        System.out.print("Ingrese el tiempo entre escrituras (en milisegundos): ");
-        int tiempoEntreEscrituras = scanner.nextInt();
+//        try {
+//            hilox.join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
-        System.out.print("Ingrese el número de repeticiones: ");
-        int repeticiones = scanner.nextInt();
-
-        // Crear un único tipo de hilo con tres parámetros
-        Hilo_ hiloParametrizado = new Hilo_(caracter, tiempoEntreEscrituras, repeticiones);
-
+        
         // Ejecutar con diferentes tipos de ejecutores
-        ejecutarConExecutor(Executors.newCachedThreadPool(), hiloParametrizado);
-        ejecutarConExecutor(Executors.newFixedThreadPool(1), hiloParametrizado);
-        ejecutarConExecutor(Executors.newSingleThreadExecutor(), hiloParametrizado);
-        ejecutarConExecutor(Executors.newFixedThreadPool(2), hiloParametrizado);
-        ejecutarConExecutor(Executors.newFixedThreadPool(3), hiloParametrizado);
+    	ejecutarConExecutor(Executors.newCachedThreadPool(), hilox);
+        ejecutarConExecutor(Executors.newFixedThreadPool(1), hiloO);
+        ejecutarConExecutor(Executors.newSingleThreadExecutor(), hilo_);
+        //ejecutarConExecutor(Executors.newFixedThreadPool(2), hiloParametrizado);
+        //ejecutarConExecutor(Executors.newFixedThreadPool(3), hiloParametrizado);
     }
 
     private static void ejecutarConExecutor(ExecutorService executor, Runnable hilo) {
