@@ -19,8 +19,6 @@ public class CasoEstudio3 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        System.out.print("Fin hilo parametrizado");
     }
 
 }
