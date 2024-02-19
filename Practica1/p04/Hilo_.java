@@ -2,7 +2,7 @@ package p04;
 
 public class Hilo_ implements Runnable{
 	
-	private char caracter;
+private char caracter;
     private int tiempoEntreEscrituras;
     private int repeticiones;
 
