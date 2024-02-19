@@ -2,7 +2,6 @@ package p04;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import p03.Hilo;
 
 public class CasoEstudio4 {
 
