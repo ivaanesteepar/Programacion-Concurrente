@@ -10,12 +10,13 @@ public class CasoEstudio4 {
     	Thread hilox = new Thread(new Hilo('x', 1, 4));
         Thread hilo_ = new Thread(new Hilo('-', 3, 2));
         Thread hiloO = new Thread(new Hilo('o', 6, 2));
+
+        hiloO.setPriority(Thread.MAX_PRIORITY);
                 
         hilox.start();
         hilo_.start();
         hiloO.start();
         
-        hiloO.setPriority(Thread.MAX_PRIORITY);
 
 //        try {
 //            hilox.join();
