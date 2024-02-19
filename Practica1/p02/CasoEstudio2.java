@@ -1,5 +1,6 @@
 package p02;
 
+// Ejecutaremos primero el hilo X y hasta que no acabe, no se ejecutarán los demás hilos
 public class CasoEstudio2 {
 	
 	public static void main(String[] args) {
