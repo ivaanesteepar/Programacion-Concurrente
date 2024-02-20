@@ -10,12 +10,8 @@ public class CasoEstudio4 {
     	Thread hilox = new Thread(new Hilo('x', 1, 4));
         Thread hilo_ = new Thread(new Hilo('-', 3, 2));
         Thread hiloO = new Thread(new Hilo('o', 6, 2));
-
+        
         hiloO.setPriority(Thread.MAX_PRIORITY);
-                
-        hilox.start();
-        hilo_.start();
-        hiloO.start();
         
 
 //        try {
@@ -23,18 +19,16 @@ public class CasoEstudio4 {
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-
+        
+        // Creamos y definimos el ejecutor
+        ExecutorService executor = Executors.newCachedThreadPool();
+        
         
         // Ejecutar con diferentes tipos de ejecutores
-    	ejecutarConExecutor(Executors.newCachedThreadPool(), hilox);
-        ejecutarConExecutor(Executors.newFixedThreadPool(1), hiloO);
-        ejecutarConExecutor(Executors.newSingleThreadExecutor(), hilo_);
-        //ejecutarConExecutor(Executors.newFixedThreadPool(2), hiloParametrizado);
-        //ejecutarConExecutor(Executors.newFixedThreadPool(3), hiloParametrizado);
+    	executor.execute(hilox);
+        executor.execute(hilo_);
+        executor.execute(hiloO);
+
     }
 
-    private static void ejecutarConExecutor(ExecutorService executor, Runnable hilo) {
-        executor.execute(hilo);
-        executor.shutdown();
-    }
 }
