@@ -1,2 +1,2 @@
 # Programacion-Concurrente
-Prácticas de Programación Concurrente realizadas con Java
+Prácticas de Programación Concurrente realizadas en Java y C
