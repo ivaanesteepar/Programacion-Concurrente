@@ -1,6 +1,6 @@
 <h2>Programación Concurrente y de Tiempo Real</h2>
 
-<p>Practices of the subject of Concurrent Programming at UBU.</p>
+<p>Practices of the subject of Concurrent and Real Time Programming at UBU.</p>
 
 <p>The subject is divided into 2 parts:</p>
 <ul>
